@@ -47,9 +47,7 @@ export default {
   position: relative;
   padding: 180px 32px;
 
-//   clip-path: polygon(0 6vw, 100% 0, 100% 100%, 0 100%);
-clip-path: polygon(0 6vw, 100% 0, 100% 94vw, 0 100%);
-
+  clip-path: polygon(0 6vw, 100% 0, 100% 94vw, 0 100%);
 
   &::before {
     content: "";
@@ -68,10 +66,11 @@ clip-path: polygon(0 6vw, 100% 0, 100% 94vw, 0 100%);
   .heading {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     h3 {
       color: #fbfbfb;
       font-family: "Inter-Medium";
-      font-size: 6rem;
+      font-size: clamp(3rem, 6vw, 6rem);
       font-weight: 500;
       span {
         color: #a41c35;
@@ -82,6 +81,7 @@ clip-path: polygon(0 6vw, 100% 0, 100% 94vw, 0 100%);
 
 .service-options {
   display: flex;
+  justify-content: center;
   border-radius: 8px;
 
   padding: 4px;
@@ -108,5 +108,60 @@ clip-path: polygon(0 6vw, 100% 0, 100% 94vw, 0 100%);
     color: #fbfbfb;
     opacity: 1;
   }
+}
+
+@media (max-width: 640px) {
+  .service-option {
+    min-width: auto !important;
+    max-width: 100px !important;
+    font-size: 1.2rem;
+  }
+  .heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    h3 {
+      text-align: center;
+    }
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  .service-option {
+    min-width: 120px;
+    font-size: 1rem;
+    padding: 8px !important;
+  }
+  .heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    h3 {
+      text-align: center;
+    }
+  }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+  .service-option {
+    min-width: 130px !important;
+    font-size: 1.4rem;
+    padding: 10px 18px;
+  }
+  .our-projects-section {
+    padding: 60px 10px;
+  }
+}
+
+@media (max-width: 1280px) {
+  /* xl */
+}
+
+@media (min-width: 1536px) {
+  /* 2xl */
 }
 </style>

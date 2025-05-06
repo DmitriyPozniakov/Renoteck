@@ -63,9 +63,10 @@ import HeadsetIcon from '@/assets/images/Headset.svg';
   .info {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 48px;
 
-    padding: 32px;
+    padding: 24px;
     border-radius: 12px;
     background: #292929;
   }
@@ -74,7 +75,7 @@ import HeadsetIcon from '@/assets/images/Headset.svg';
 h2 {
   color: #fbfbfb;
   font-family: "Inter-Medium";
-  font-size: 6rem;
+  font-size: clamp(3rem, 6vw, 6rem);
   margin-bottom: 24px;
   font-weight: 500;
 
@@ -107,6 +108,8 @@ p {
 
 img {
   border-radius: 12px;
+  height: auto;
+  width: 100%;
 }
 
 .advantages {

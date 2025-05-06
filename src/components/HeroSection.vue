@@ -19,18 +19,20 @@ import HeroForm from "./HeroForm.vue";
 <style lang="scss" scoped>
 .hero-section {
   border-radius: 12px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 100%), url("/src/assets/images/bg-hero.png") lightgray 50% / cover no-repeat;
-  
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 100%),
+    url("/src/assets/images/bg-hero.png") lightgray 50% / cover no-repeat;
+
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 
   padding: 94px 40px 94px 80px;
+  height: 90rem;
 
   h1 {
     color: #fff;
     font-family: "Inter-Medium";
-    font-size: 8.8rem;
+    font-size: clamp(2.4rem, 6vw, 8.8rem);
     margin-bottom: 24px;
     font-weight: 500;
   }
@@ -38,9 +40,10 @@ import HeroForm from "./HeroForm.vue";
   p {
     color: #fff;
     font-family: "Inter-Medium";
-    font-size: 2.4rem;
+    font-size: clamp(1.6rem, 6vw, 2.4rem);
     max-width: 85rem;
     text-align: justify;
   }
 }
+
 </style>

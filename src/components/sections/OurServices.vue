@@ -2,6 +2,7 @@
   <section class="our-services">
     <h2>Our <span>services</span></h2>
     <div class="services">
+
       <div class="service-card card-residental">
         <div class="floating-elements">
           <base-floating class="floating">
@@ -43,6 +44,7 @@
         </div>
         <p class="card-heading">Industrial</p>
       </div>
+
     </div>
     <base-button class="btn">Get in touch!</base-button>
   </section>

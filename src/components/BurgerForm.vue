@@ -93,7 +93,7 @@
       </div>
     </div>
 
-    <div clas="contact-form__column">
+    <div class="contact-form__column">
       <label class="contact-form__label">Type of service</label>
       <div class="contact-form__service-options">
         <div
@@ -110,7 +110,7 @@
       </div>
     </div>
 
-    <div clas="contact-form__column">
+    <div class="contact-form__column">
       <label for="project-details" class="contact-form__label"
         >Details of your project</label
       >
@@ -125,8 +125,9 @@
     <button type="submit" class="contact-form__submit-btn">Send</button>
   </form>
 </template>
-
-<script>
+  
+  
+  <script>
 export default {
   data() {
     return {
@@ -149,8 +150,8 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
+  
+  <style lang="scss" scoped>
 .contact-form {
   width: 100%;
   max-width: 62rem;
@@ -167,11 +168,14 @@ export default {
 
   &__row {
     display: flex;
-    gap: 24px;
+    gap: 12px; /* Уменьшил промежутки для более плотного расположения */
+    flex-wrap: wrap; /* Позволяет элементам переходить на новую строку при необходимости */
   }
 
   &__column {
     flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   &__label {
@@ -263,33 +267,15 @@ export default {
 }
 
 @media (max-width: 640px) {
-  /* sm */
-  .contact-form {
-    display: none;
+  .contact-form__row {
+    flex-direction: column;
   }
 }
 
 @media (max-width: 768px) {
-  /* md */
-  .contact-form {
-    display: none;
-  }
 }
 
 @media (max-width: 1024px) {
-  /* lg */
-  .contact-form {
-    display: none;
-  }
-}
-
-@media (max-width: 1280px) {
-  /* xl */
-  .contact-form {
-    display: none;
-  }
-}
-
-@media (min-width: 1536px) {
 }
 </style>
+  

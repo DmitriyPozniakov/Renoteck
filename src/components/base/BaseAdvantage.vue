@@ -35,14 +35,14 @@ defineProps({
   .value {
     color: #a41c35;
     font-family: 'Inter-Medium';
-    font-size: 3.2rem;
+    font-size: clamp(1.6rem, 6vw, 3.2rem);
     margin-bottom: 5px;
   }
 
   .label {
     color: #fbfbfb;
     font-family: 'Inter-Medium';
-    font-size: 2.4rem;
+    font-size: clamp(1.2rem, 6vw, 2.4em);
   }
 }
 </style>

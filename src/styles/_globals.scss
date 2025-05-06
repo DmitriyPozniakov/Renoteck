@@ -17,3 +17,67 @@ form {
     backdrop-filter: blur(6.5px);
     padding: 32px;
 }
+
+section {
+    overflow-x: hidden;
+}
+
+@media (max-width: 640px) {
+
+    /* sm */
+    * {
+        clip-path: none !important;
+    }
+    nav {
+        border-radius: 0 !important;
+    }
+    header {
+        padding: 0 !important;
+        gap: 0 !important;
+    }
+    .hero-section {
+        padding: 30px 15px !important;
+        height: 64rem !important;
+        border-radius: 0 !important;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    /* md */
+    * {
+        clip-path: none !important;
+    }
+    header {
+        padding: 0 !important;
+    }
+    .hero-section {
+        padding: 30px 15px !important;
+        height: 64rem !important;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    /* lg */
+    * {
+        clip-path: none !important;
+    }
+}
+
+@media (max-width: 1280px) {
+
+    /* xl */
+    * {
+        clip-path: none !important;
+    }
+}
+
+@media (max-width: 1536px) {
+
+    /* 2xl */
+    * {
+        clip-path: none !important;
+    }
+}

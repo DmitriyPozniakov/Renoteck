@@ -17,21 +17,11 @@
         v-for="(slide, i) in slides"
         :key="i"
         :image="slide.image"
-        :title="slide.title"
       >
         <template #content>
           <div class="slide-content" :class="{ active: currentSlide === i }">
             <div class="slide-image-container">
               <img :src="slide.image" :alt="slide.title" class="slide-image" />
-              <div class="slide-overlay"></div>
-            </div>
-            <div class="heading">
-              <base-floating background="rgba(255, 255, 255, 0.24)">Snap-look</base-floating>
-              <base-floating background="rgba(255, 255, 255, 0.24)">Brown color</base-floating>
-            </div>
-            <div class="slide-title">
-              {{ slide.title }}
-              <base-floating>About project</base-floating>
             </div>
           </div>
         </template>
@@ -69,13 +59,11 @@
     </div>
   </div>
 </template>
-  
-  <script>
+    
+    <script>
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
-import HouseImg1 from "@/assets/images/house-img-1.png";
-import HouseImg2 from "@/assets/images/house-img-2.png";
-import HouseImg3 from "@/assets/images/house-img-3.png";
+import CommentImg from "@/assets/images/comment.png";
 
 export default {
   components: {
@@ -87,16 +75,13 @@ export default {
       currentSlide: 1,
       slides: [
         {
-          title: "Town house",
-          image: HouseImg1,
+          image: CommentImg,
         },
         {
-          title: "Town house",
-          image: HouseImg2,
+          image: CommentImg,
         },
         {
-          title: "Town house",
-          image: HouseImg3,
+          image: CommentImg,
         },
       ],
       breakpoints: {
@@ -140,9 +125,9 @@ export default {
   },
 };
 </script>
-  
-  
-<style lang="scss" scoped>
+    
+    
+  <style lang="scss" scoped>
 .slider-container {
   width: 100%;
   height: 50rem;
@@ -174,12 +159,12 @@ export default {
   transform: scale(1);
   opacity: 1;
   filter: none;
-  z-index: 2; 
+  z-index: 2;
 }
 
 .vueperslide--prev,
 .vueperslide--next {
-  transform: scale(0.9); 
+  transform: scale(0.9);
 }
 
 .slide-content {
@@ -203,8 +188,10 @@ export default {
 .slide-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 12px;
+  object-position: center;
+  background-color: #1C1C1C
 }
 
 .slide-overlay {

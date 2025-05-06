@@ -43,7 +43,7 @@
         <base-city>Rocky Mountain House</base-city>
         <base-city>Leduc</base-city>
       </div>
-      <img src="@/assets/images/map.png" alt="">
+      <img src="@/assets/images/map.png" alt="" />
     </div>
   </section>
 </template>
@@ -89,10 +89,11 @@ export default {
   .heading {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     h3 {
       color: #fbfbfb;
       font-family: "Inter-Medium";
-      font-size: 6rem;
+      font-size: clamp(3rem, 6vw, 6rem);
       font-weight: 500;
       span {
         color: #a41c35;
@@ -139,15 +140,54 @@ export default {
 
 .county {
   color: #a3a3a3;
-  font-family: 'Inter-Medium';
+  font-family: "Inter-Medium";
   font-size: 1.6rem;
   font-weight: 500;
 }
 
 .cities {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    max-width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 90%;
+}
+
+@media (max-width: 640px) {
+  /* sm */
+  .roofing-section {
+    padding: 60px 32px 60px 32px;
+  }
+
+  h3 {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+}
+
+@media (max-width: 768px) {
+  /* md */
+  .roofing-section {
+    padding: 60px 32px 60px 32px;
+  }
+
+  h3 {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* lg */
+  
+}
+
+@media (max-width: 1280px) {
+  /* xl */
+ 
+}
+
+@media (min-width: 1536px) {
+  /* 2xl */
 }
 </style>
