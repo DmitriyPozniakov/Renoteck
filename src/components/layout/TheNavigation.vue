@@ -1,7 +1,7 @@
 <template>
   <nav>
     <img src="@/assets/images/logo.svg" class="logo" alt="logo" />
-    <ul>
+    <ul class="nav-list">
       <li><a href="">About</a></li>
       <li @click="changeImage('item1')">
         <a href="" @click.prevent
@@ -117,6 +117,38 @@
           <p class="card-heading">Industrial</p>
         </div>
       </div>
+      <div class="additional" @click="openAdditional">
+        <p>Additional Services</p>
+        <img
+          :src="
+            showAdditional
+              ? require('@/assets/images/CaretUp.svg')
+              : require('@/assets/images/CaretDown.svg')
+          "
+        />
+      </div>
+      <div v-if="showAdditional" class="roofs">
+        <div class="roof">
+          <img src="@/assets/images/add-1.png" alt="">
+          <p>Commercial roofing</p>
+        </div>
+        <div class="roof">
+          <img src="@/assets/images/add-2.png" alt="">
+          <p>Emergency roofing</p>
+        </div>
+        <div class="roof">
+          <img src="@/assets/images/add-3.png" alt="">
+          <p>Asphalt shingles</p>
+        </div>
+        <div class="roof">
+          <img src="@/assets/images/add-4.png" alt="">
+          <p>Green roofing</p>
+        </div>
+        <div class="roof">
+          <img src="@/assets/images/add-5.png" alt="">
+          <p>Flat roofing</p>
+        </div>
+      </div>
     </div>
 
     <div
@@ -124,7 +156,48 @@
       class="item-content"
       :key="selectedItem"
     >
-      <p>Content for Type of roofing</p>
+      <div class="roofs">
+        <div class="roof">
+          <img src="@/assets/images/roof-1.png" alt="" />
+          <p>Galvalume</p>
+        </div>
+        <div class="roof">
+          <img src="@/assets/images/roof-2.png" alt="" />
+          <p>Aluminium</p>
+        </div>
+        <div class="roof">
+          <img src="@/assets/images/roof-3.png" alt="" />
+          <p>Copper</p>
+        </div>
+        <div class="roof">
+          <img src="@/assets/images/roof-4.png" alt="" />
+          <p>Terne</p>
+        </div>
+        <div class="roof">
+          <img src="@/assets/images/roof-5.png" alt="" />
+          <p>Zink</p>
+        </div>
+        <div class="roof">
+          <img src="@/assets/images/roof-6.png" alt="" />
+          <p>Stainless Steel</p>
+        </div>
+        <div class="roof">
+          <img src="@/assets/images/roof-7.png" alt="" />
+          <p>Brass</p>
+        </div>
+        <div class="roof">
+          <img src="@/assets/images/roof-8.png" alt="" />
+          <p>Titanium Nitride</p>
+        </div>
+        <div class="roof">
+          <img src="@/assets/images/roof-9.png" alt="" />
+          <p>Chromium Oxide</p>
+        </div>
+        <div class="roof">
+          <img src="@/assets/images/roof-10.png" alt="" />
+          <p>Titanium</p>
+        </div>
+      </div>
     </div>
 
     <div
@@ -132,7 +205,60 @@
       class="item-content"
       :key="selectedItem"
     >
-      <p>Content for Locations</p>
+      <div class="locations">
+        <p class="location">Locations</p>
+        <div class="service-options">
+          <div
+            v-for="(service, index) in serviceTypes"
+            :key="index"
+            :class="[
+              'service-option',
+              { active: formData.serviceType === service.value },
+            ]"
+            @click="formData.serviceType = service.value"
+          >
+            {{ service.label }}
+          </div>
+        </div>
+        <div class="links">
+          <ul class="list">
+            <li>Calgary</li>
+            <li>Cochrane</li>
+            <li>Airdrie</li>
+            <li>De Winton</li>
+          </ul>
+          <ul class="list">
+            <li>Chestermere</li>
+            <li>Red Deer</li>
+            <li>Okotoks</li>
+            <li>High River</li>
+          </ul>
+          <ul class="list">
+            <li>Edmonton</li>
+            <li>Spruce Grove</li>
+            <li>Sherwood Park</li>
+            <li>Fort Saskatchewan</li>
+          </ul>
+          <ul class="list">
+            <li>St. Albert</li>
+            <li>Brag Creek</li>
+            <li>Whitecourt</li>
+            <li>Fort McMurray</li>
+          </ul>
+          <ul class="list">
+            <li>Drumheller</li>
+            <li>Lethbridge</li>
+            <li>Banff</li>
+            <li>Leduc</li>
+          </ul>
+          <ul class="list">
+            <li>Brooks</li>
+            <li>Canmore</li>
+            <li>Medicine Hat</li>
+            <li>Rocky Mountain House</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </nav>
 </template>
@@ -159,10 +285,128 @@ const changeImage = (item) => {
   }
   selectedItem.value = selectedItem.value === item ? null : item;
 };
+
+const showAdditional = ref(false);
+
+const openAdditional = () => {
+  showAdditional.value = !showAdditional.value;
+};
+
+const formData = ref({
+  serviceType: "alberta",
+});
+const serviceTypes = [
+  { label: "Alberta", value: "alberta" },
+  { label: "Britain Columbia", value: "britain columbia" },
+];
 </script>
 
 
 <style lang="scss" scoped>
+.roofs {
+  display: flex;
+  overflow-x: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  gap: 12px;
+}
+.roofs::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+.roof {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  p {
+    color: #fbfbfb;
+    font-family: "Inter-Medium";
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+}
+
+.card-heading {
+  color: #fbfbfb;
+  font-family: "Inter-Medium";
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.additional {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #fbfbfb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+nav {
+  .location {
+    color: #fbfbfb;
+    font-family: "Inter-Medium";
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    margin-top: 12px;
+  }
+
+  .links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 36px;
+    width: 100%;
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+}
+
+.service-options {
+  display: inline-flex;
+  border-radius: 8px;
+
+  padding: 4px;
+  border: 1px solid rgba(237, 237, 237, 0.5);
+  margin-bottom: 24px;
+}
+
+.service-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 20px;
+  cursor: pointer;
+  color: #ededed;
+  opacity: 0.65;
+  font-size: 1.6rem;
+  font-family: "Inter-Medium";
+  border-radius: 5px;
+  transition: background-color 0.3s;
+
+  &.active {
+    background-color: #2e7bb2;
+    color: #fbfbfb;
+    opacity: 1;
+  }
+}
+
+li {
+  color: #a3a3a3;
+  font-family: "Inter-Medium";
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
 .item-content {
   background: #292929;
   position: absolute;
@@ -170,16 +414,16 @@ const changeImage = (item) => {
   left: 0;
   right: 0;
   z-index: 10;
-  transition: opacity 0.3s ease, max-height 0.3s ease;
   overflow: hidden;
 
   display: flex;
+  flex-direction: column;
+  width: 100%;
 
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
 
   padding: 16px 32px;
-
 }
 
 .form {
@@ -201,7 +445,7 @@ nav {
   border-radius: 12px;
   padding: 16px;
 
-  ul {
+  .nav-list {
     display: flex;
     gap: 24px;
 
@@ -227,11 +471,20 @@ nav {
   display: none;
 }
 
+.additional {
+  color: #fbfbfb;
+  font-family: "Inter-Medium";
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
 .services {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 24px;
+  margin-bottom: 30px;
 
   .service-card {
     display: flex;
@@ -281,8 +534,12 @@ nav {
 
 @media (max-width: 640px) {
   /* sm */
-  nav ul,
+  nav .nav-list,
   nav .nav-actions {
+    display: none;
+  }
+
+  .item-content {
     display: none;
   }
 
@@ -293,39 +550,65 @@ nav {
 
 @media (max-width: 768px) {
   /* md */
-  nav ul,
+  nav .nav-list,
   nav .nav-actions {
+    display: none;
+  }
+
+  .item-content {
     display: none;
   }
 
   .burger {
     display: block;
+  }
+  .item-content {
+    display: none;
   }
 }
 
 @media (max-width: 1024px) {
   /* lg */
-  nav ul,
+  nav .nav-list,
   nav .nav-actions {
     display: none;
   }
   .burger {
     display: block;
+  }
+
+  .item-content {
+    display: none;
   }
 }
 
 @media (max-width: 1280px) {
   /* xl */
-  nav ul,
+  nav .nav-list,
   nav .nav-actions {
     display: none;
   }
   .burger {
     display: block;
   }
+
+  .item-content {
+    display: none;
+  }
 }
 
-@media (min-width: 1536px) {
+@media (max-width: 1536px) {
   /* 2xl */
+  nav .nav-list,
+  nav .nav-actions {
+    display: none;
+  }
+  .burger {
+    display: block;
+  }
+
+  .item-content {
+    display: none;
+  }
 }
 </style>
